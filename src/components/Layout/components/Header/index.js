@@ -8,7 +8,9 @@ const cx = classNames.bind(styles) //Lấy cx làm class giúp mk có thể đ�
 function Header() {
     return (
         <header className={cx('wrapper')}>
+            <div className={cx('inner')}>
 
+            </div>
         </header>
     );
 }
