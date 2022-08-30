@@ -19,4 +19,19 @@ body {
 }
 
 :root {
+    --black-color: #000;
+    --primary-color: #fe2c55;
+    --text-color: #333;
+}
+
+button,
+input,
+[tabindex] {
+    border: none;
+    outline: none;
+}
+
+a[href] {
+    text-decoration: none;
+    color: var(--text-color);
 }

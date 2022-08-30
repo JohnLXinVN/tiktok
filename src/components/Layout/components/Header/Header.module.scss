@@ -1,4 +1,9 @@
 .wrapper {
+    --search-border-radius: 90px;
+    --search-height: 46px;
+    --search-top-spacer: 9px;
+    --width-search-btn: 52px;
+
     width: 100%;
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     height: 60px;
@@ -10,5 +15,80 @@
 .inner {
     width: 1150px;
     height: 100%;
-    background-color: #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+}
+
+.search {
+    position: relative;
+    height: var(--search-height);
+    width: 361px;
+    background-color: rgba(22, 24, 35, 0.06);
+    display: flex;
+    align-items: center;
+    border-radius: var(--search-border-radius);
+    border: 1.5px solid transparent;
+
+    input {
+        flex: 1;
+        height: 100%;
+        background-color: transparent;
+        font-size: 1.4rem;
+        padding-left: 16px;
+        color: #828282;
+        caret-color: var(--primary-color);
+    }
+
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    &:focus-within {
+        border: 1.5px solid rgba(22, 24, 35, 0.2);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        background-color: rgba(22, 24, 35, 0.12);
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
+        width: 2px;
+        right: var(--width-search-btn);
+        top: var(--search-top-spacer);
+    }
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: var(--width-search-btn);
+    color: rgba(22, 24, 35, 0.34);
+    right: calc(var(--width-search-btn) + 16px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-btn {
+    width: var(--width-search-btn);
+    height: 100%;
+    color: #a8a8ac;
+    font-size: 1.8rem;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.actions {
 }
