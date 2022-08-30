@@ -12,6 +12,11 @@
     justify-content: center;
 }
 
+.search,
+.search-results {
+    width: 361px;
+}
+
 .inner {
     width: 1150px;
     height: 100%;
@@ -26,7 +31,7 @@
 .search {
     position: relative;
     height: var(--search-height);
-    width: 361px;
+
     background-color: rgba(22, 24, 35, 0.06);
     display: flex;
     align-items: center;
@@ -91,4 +96,13 @@
 }
 
 .actions {
+}
+
+.search-results {
+    padding: 8px;
+}
+
+.search-label {
+    color: rgba(22, 24, 35, 0.5);
+    padding: 5px 12px;
 }
