@@ -18,12 +18,6 @@ body {
     text-rendering: optimizeSpeed;
 }
 
-:root {
-    --black-color: #000;
-    --primary-color: #fe2c55;
-    --text-color: #333;
-}
-
 button,
 input,
 [tabindex] {
@@ -33,5 +27,11 @@ input,
 
 a[href] {
     text-decoration: none;
-    color: var(--text-color);
+}
+
+:root {
+    --black-color: #000;
+    --primary-color: #fe2c55;
+    --text-color: #333;
+    --while-color: #fff;
 }

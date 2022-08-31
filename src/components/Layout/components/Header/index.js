@@ -9,6 +9,7 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper'
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 
 
 const cx = classNames.bind(styles) //Lấy cx làm class giúp mk có thể đặt tên class name có dấu gạch ngang
@@ -64,7 +65,10 @@ function Header() {
                     </div>
                 </Tippy>
 
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button text >Upload</Button>
+                    <Button outline rounded>Log in</Button>
+                </div>
             </div>
         </header>
     );

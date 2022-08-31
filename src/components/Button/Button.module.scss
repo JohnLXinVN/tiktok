@@ -1,0 +1,69 @@
+.wrapper {
+    border-radius: 4px;
+    font-size: 1.6rem;
+    padding: 9px 28px;
+    user-select: none;
+    font-weight: 700;
+    border: 1px solid transparent;
+    background-color: var(--while-color);
+    cursor: pointer;
+
+    + .wrapper {
+        margin-left: 8px; //nút đứng cạnh nhau thì cách nhau
+    }
+}
+
+//btn style
+.rounded {
+    border-radius: 99px;
+    color: #62646b;
+    border-color: #ccc;
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.primary {
+    background-color: var(--primary-color);
+    color: var(--while-color);
+    border-color: rgba(22, 24, 35, 0.2);
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+    }
+}
+
+.outline {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+
+    &:hover {
+        border-color: var(--primary-color);
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.disable {
+    opacity: 0.5;
+    cursor-events: none;
+}
+
+//btn size
+
+.small {
+    font-weight: 500;
+    padding: 4px 22px;
+}
+
+.large {
+    padding: 14px 16px;
+    min-width: 140px;
+}
