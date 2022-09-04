@@ -1,9 +1,7 @@
-
-
 function Following() {
     return (
-        <h1>Following page</h1>
+        <h1>Following</h1>
     );
 }
 
-export default Following;
+export default Following

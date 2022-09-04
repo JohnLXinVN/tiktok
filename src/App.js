@@ -1,32 +1,37 @@
 
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from 'react-router-dom'
+import { publicRoute } from './routes';
+import { DefaultLayout } from "~/component/Layout"
+import { Fragment } from 'react';
 
-import { Fragment } from 'react'
-import { publicRoutes } from '~/routes'
-import { DefaultLayout } from '~/components/Layout';
 
 function App() {
   return (
 
-    <div className="app-wrapper">
+    <div className="App">
+
       <Routes>
-        {publicRoutes.map((route, index) => {
+        {publicRoute.map((route, index) => {
+          const Page = route.component
           let Layout = DefaultLayout
+
           if (route.layout) {
             Layout = route.layout
           }
-          else if (Layout === null) {
+          else if (route.layout === null) {
             Layout = Fragment
           }
 
-          const Page = route.component
           return <Route
             key={index}
             path={route.path}
             element={
               <Layout>
                 <Page />
-              </Layout>} />
+              </Layout>
+            }
+          />
+
         })}
       </Routes>
     </div>
