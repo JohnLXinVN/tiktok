@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faEarthAsia, faEllipsisVertical, faKeyboard, faLongArrowDown, faMagnifyingGlass, faQuestionCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
 
@@ -10,6 +10,7 @@ import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper'
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
 
 const cx = classNames.bind(styles) //Lấy cx làm class giúp mk có thể đặt tên class name có dấu gạch ngang
@@ -23,6 +24,22 @@ function Header() {
             setSearchResult([])
         }, 0)
     }, [])
+
+    const MENU_ITEMS = [
+        {
+            title: 'English',
+            icon: <FontAwesomeIcon icon={faEarthAsia} />
+        },
+        {
+            title: 'Feedback and help',
+            icon: <FontAwesomeIcon icon={faQuestionCircle} />,
+            to: '/feedback'
+        },
+        {
+            title: 'English',
+            icon: <FontAwesomeIcon icon={faKeyboard} />
+        },
+    ]
 
     return (
         <header className={cx('wrapper')}>
@@ -67,7 +84,14 @@ function Header() {
 
                 <div className={cx('actions')}>
                     <Button text >Upload</Button>
-                    <Button outline rounded>Log in</Button>
+                    <Button primary  >Log in</Button>
+                    <Menu
+                        items={MENU_ITEMS}
+                    >
+                        <button className={cx('more-icon')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
