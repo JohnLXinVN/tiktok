@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import Tippy from "@tippyjs/react";
+import { faCircleXmark, faKeyboard, faCircleQuestion, faMagnifyingGlass, faSpinner, faEllipsisVertical, faEarthAsia } from "@fortawesome/free-solid-svg-icons";
+import Tippy from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
 
@@ -10,6 +10,39 @@ import images from "~/assets/images";
 import { Wrapper as PopperWrapper } from "~/component/Popper";
 import AccountItem from "~/component/AccountItem";
 import Button from "~/component/Button";
+import Menu from "~/component/Popper/Menu";
+
+const MENU_ITEMS = [
+    {
+
+        title: 'Languages',
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        children: {
+            title: "Languages",
+            data: [
+                {
+                    type: "language",
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: "language",
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ]
+        }
+    },
+    {
+        title: 'Feedback and helps',
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        to: '/abc'
+    },
+    {
+        title: 'Keyboard shortcuts',
+        icon: <FontAwesomeIcon icon={faKeyboard} />
+    }
+]
 
 
 
@@ -25,6 +58,10 @@ function Header() {
             setSearchResults([])
         }, 0);
     }, [])
+
+    const handleOnchange = (MenuItem) => {
+        console.log(MenuItem)
+    }
 
     return (
         <header className={cx('header')}>
@@ -66,7 +103,15 @@ function Header() {
                 <div className={cx('actions')}>
                     <Button text >Upload</Button>
                     <Button primary>Login</Button>
+                    <Menu
+                        items={MENU_ITEMS}
+                        onChange={handleOnchange}
+                    >
 
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
 
 
                 </div>
