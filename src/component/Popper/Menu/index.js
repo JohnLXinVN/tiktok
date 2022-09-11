@@ -47,7 +47,7 @@ function Menu({ children, items = [], onChange }) {
 
     return (
         <Tippy
-            visible
+            arrow
             interactive
             placement='bottom-end'
             render={(attrs) => (
@@ -59,6 +59,9 @@ function Menu({ children, items = [], onChange }) {
                     </PopperWrapper>
                 </div>
             )}
+            onHide={() => {
+                setHistory(prev => prev.slice(0, 1))
+            }}
 
         >
             {children}
