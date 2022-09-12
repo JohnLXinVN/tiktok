@@ -14,6 +14,8 @@ import AccountItem from "~/component/AccountItem";
 import Button from "~/component/Button";
 import Menu from "~/component/Popper/Menu";
 import { icon } from "@fortawesome/fontawesome-svg-core";
+import Image from "~/component/Image";
+import { InBoxIcon, MessagesIcon, UserIcon } from "~/component/icon";
 
 
 const MENU_ITEMS = [
@@ -56,7 +58,7 @@ const currentMenuLogin = true;
 const USER_MENU = [
     {
         title: 'View profile',
-        icon: <FontAwesomeIcon icon={faUser} />,
+        icon: <UserIcon />,
         to: '/anhhm'
 
     },
@@ -142,8 +144,28 @@ function Header() {
 
                             >
 
-                                <button className={cx('upload-btn')}>
+                                <button className={cx('action-btn')}>
                                     <FontAwesomeIcon icon={faCloudArrowUp} />
+                                </button>
+                            </Tippy>
+                            <Tippy
+                                content="Messages"
+                                placement="bottom"
+
+                            >
+
+                                <button className={cx('action-btn')}>
+                                    <MessagesIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy
+                                content="Messages"
+                                placement="bottom"
+
+                            >
+
+                                <button className={cx('action-btn')}>
+                                    <InBoxIcon />
                                 </button>
                             </Tippy>
 
@@ -161,7 +183,13 @@ function Header() {
                     >
                         {currentMenuLogin ?
 
-                            <img className={cx('avatar-login')} src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/36262a14448e5e38e9dd55d312908347~c5_100x100.jpeg?x-expires=1662555600&x-signature=ZqnjiIBwdEJ9mA6Ngx%2FF%2FVaJl8s%3D" alt="Đào Phương Hoa" />
+                            <Image
+                                className={cx('avatar-login')}
+                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/36262a14448e5e38e9dd55d312908347~c5_100x100.jpeg?x-expires=1662555600&x-signature=ZqnjiIBwdEJ9mA6Ngx%2FF%2FVaJl8s%3D"
+                                alt="Đào Phương Hoa"
+                                fallBack='https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png' //mong muốn khi ảnh lỗi thì lấy cái fallbacl này là ảnh lỗi ==> mục đích tái sử dụng
+
+                            />
 
 
                             :

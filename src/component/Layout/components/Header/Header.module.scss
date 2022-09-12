@@ -127,10 +127,12 @@
 
 //actions with login
 
-.upload-btn {
+.action-btn {
     background-color: transparent;
     padding: 4px 8px;
     font-size: 2.6rem;
+    display: flex;
+    align-items: center;
 }
 
 .avatar-login {
