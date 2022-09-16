@@ -3,6 +3,7 @@ import { faKeyboard, faCircleQuestion, faEllipsisVertical, faEarthAsia, faRightF
 import classNames from "classnames/bind";
 import Tippy from "@tippyjs/react";
 import 'tippy.js/dist/tippy.css';
+import { Link } from "react-router-dom";
 
 
 import styles from "./Header.module.scss"
@@ -12,6 +13,7 @@ import Menu from "~/component/Popper/Menu";
 import Image from "~/component/Image";
 import { CoinIcon, InBoxIcon, MessagesIcon, SettingIcon, UserIcon } from "~/component/icon";
 import Search from "../Search";
+import configRoutes from "~/config/routes";
 
 
 const MENU_ITEMS = [
@@ -90,9 +92,11 @@ function Header() {
     return (
         <header className={cx('header')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
-                    <img src={images.logo} alt="logo" />
-                </div>
+                <Link to={configRoutes.home}>
+                    <div className={cx('logo')}>
+                        <img src={images.logo} alt="logo" />
+                    </div>
+                </Link>
                 <Search />
 
                 <div className={cx('actions')}>
